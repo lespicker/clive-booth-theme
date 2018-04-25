@@ -50,12 +50,12 @@
   }
 </script>
   
-<section class="pv5 ph3 ph6-l white-70" {{ if isset .Params "image" }} style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.1)), url('{{ .Params.image }}') no-repeat center; background-size: cover;" {{ end }}>
+<section class="pv5 ph3 ph6-l white-70" {{ if isset .Params "image" }} style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('{{ .Params.image }}') no-repeat center; background-size: cover;" {{ end }}>
   <article class="cf pt5 pa5-l tc">
     <h1 class="pt4 pt5-l mt4 mt5-l mb2 f2 f-subheadline-l fw7 ttu">Get Your Free Copy</h1>
     <h2 class="f5 f3-l fw5 mt2 mb5">Framing Checklist &amp; Resources</h2>
     <form id="download" class="pb4-ns" method="post" action="">
-        <input class="bg-transparent light-gray bt-0 bl-0 br-0 bb-2 bb pb1 w5 ttu tracked fw7 f6 lh-copy" id="mc-email" name="email" placeholder="Your email address" required type="email">
+        <input class="bg-transparent white bt-0 bl-0 br-0 bb-2 bb pb1 w5 ttu tracked fw7 f6 lh-copy" id="mc-email" name="email" placeholder="Your email address" required type="email">
         <input type="hidden" name="number" value="101">
         <input type="hidden" name="count" value="2">
         <button type="submit" class="bg-transparent db dib-l fw7 link white hover-dark-red bn center mt2 ma0-l pl4-l ttu tracked">Get Download</button>
@@ -74,18 +74,11 @@
       <h1 class="white dib fl w-0 pv0 mv0 ml-1 tracked-tight lh-solid f-super fw9 wow animated fadeInUp">
         About
       </h1>
-      <article class="mid-gray dib fr fw-50-ns mh2 mh0-ns mh5-ns lh-copy f5 fw3 wow animated fadeInUp">
-        <header class="mt0 mb0 f3 fw7">Elegance</header>
-        <p class="mt0 mb2">/'el&#601;g&#601;ns/</p>
-        <p class="mv0 i">noun</p>
-          <ol class="mv0 ml2">
-            <li class="fw5"><span class="fw3">the quality of being graceful and stylish in appearance or manner; style.<br>
-                "a slender woman with grace and elegance"<br>
-                <span class="i">synonyms:</span> style, stylishness, grace, gracefulness, taste, tastefulness, sophistication;</span></li>
-            <li class="fw5"><span class="fw3">the quality of being pleasingly ingenious and simple; neatness.<br>
-                "the simplicity and elegance of the solution"</span></li>
-          </ol>
-        </p>
+      <article class="mid-gray dib fr fw-50-ns mh2 mh0-ns mh5-ns lh-copy measure f5 fw3 wow animated fadeInUp">
+        <header class="mt0 mb0 f3 fw7">Les Picker Fine Art Photography</header>
+        <ul class="list mv2 ml4 pl0">
+          <li class="fw5"><span class="fw3">Les has photographed for National Geographic Society publications and many other consumer and corporate magazines and newspapers. Les shoots Fuji medium format and Nikon equipment and is a member of Nikon Professional Services. Les spends most of his time away from home photographing nature and wildlife, leading photo adventure tours, hosting technical workshops in the mid-atlantic area, and producing fine art photographic prints.</li>
+        </ol>
       </article>
     </article>
   </section>

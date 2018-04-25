@@ -77,6 +77,10 @@ input{
   background-color: #F2D653;  
 }
 
+::placeholder{
+  color: #FFFFFF;
+}
+
 
 /* measurements */
 
