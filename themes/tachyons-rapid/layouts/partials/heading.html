@@ -1,0 +1,6 @@
+<header class="ph5 pv4 mt6">
+  <h1 class="f2 ma0 fw4 black">{{ .Title | safeHTML }}</h1>
+  {{ if isset .Params "subtitle" }}
+  <h2 class="f5 fw4 mb3 db lh-copy mt0 gray ttu">{{ .Params.subtitle | safeHTML }}</h2>
+  {{ end }}
+</header>

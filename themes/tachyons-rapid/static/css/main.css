@@ -1,0 +1,385 @@
+/* Reset
+*/
+
+input{
+  outline-style: none;
+}
+
+/* Google Fonts */
+
+.real-roboto{
+  font-family: 'Roboto', sans-serif;
+}
+
+.lato{
+  font-family: 'Lato', serif;
+}
+
+.ultra{
+  font-family: 'ultra', cursive;
+}
+
+.ultra-ex{
+  font-family: 'Stint Ultra Expanded', cursive;
+}
+
+.ultra-cn{
+  font-family: 'Stint Ultra Condensed', cursive;
+}
+
+.slabo{
+  font-family: 'Slabo 13px', serif;
+}
+
+.unica{
+  font-family: 'unica one', sans-serif;
+}
+
+.julius{
+  font-family: 'Julius Sans One', sans-serif;
+}
+
+.crimson{
+  font-family: 'Crimson Text', serif;
+}
+
+.yes{
+  font-family: 'Yeseva One', cursive;
+}
+
+.mrws{
+  font-family: 'Merriweather', serif;
+}
+
+.mrwss{
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.dehav{
+  font-family: 'Mr De Haviland', cursive; 
+}
+
+.newton{
+  font-family: 'Neuton', serif;
+}
+
+/* Colors */
+
+.drab{
+  color: #665738;
+}
+
+.mustard{
+  color: #F2D653;
+}
+
+.bg-mustard{
+  background-color: #F2D653;  
+}
+
+
+/* measurements */
+
+.lh-close{
+  line-height: 2rem;
+}
+
+.lh-xsolid{
+  line-height: .5;
+}
+
+.f-immense{
+  font-size: 100rem;
+}
+
+.f-super{
+  font-size: 17.6rem;
+}
+
+.f-super2{
+  font-size: 7rem;
+}
+
+.rot-v{
+  transform: rotate(-90deg);
+  transform-origin: left;
+}
+
+.rot-vb{
+  transform: rotate(-90deg);
+  transform-origin: bottom;  
+}
+
+.vcenter{
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.center-a{
+  margin: auto;
+}
+
+.z-500{
+  z-index: 500;
+}
+.z--1{
+  z-index: -1;
+}
+
+.l-50{
+  left: 50%;
+}
+
+.l-100{
+  left: 100%;
+}
+
+.r-25{
+  right: 25%;
+}
+
+.r--20{
+  right: -20%
+}
+
+.top-50{
+  top: 50%;
+}
+
+.top-60{
+  top: 60%;
+}
+
+.top-100{
+  top: 100%;
+}
+
+.bottom-20{
+  bottom: 20%;
+}
+
+.ml-1{
+  margin-left: -1rem;
+}
+
+.w-0{
+  width: 0%;
+}
+
+/* Custom */
+
+.ta3{
+  transition: all .3s;
+}
+
+.modal-window{
+  display: none;
+}
+
+.modal-window:target{
+  display: block;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+
+  margin: 0 auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% { 
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
+  } 50% { 
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
+  } 100% { 
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
+}
+
+.top-logo{
+  top: 4rem;
+}
+
+.one{
+  font-size: 200rem;
+  top: 0;
+  right: -36rem;
+  line-height: .65em;
+}
+
+.sideways{
+  width: 20rem;
+  top: 18rem;
+  left: 90%;
+}
+
+
+@media screen and (min-width: 48em){  
+  .sideways{
+    width: 50rem;
+    top: 36rem;
+    left: 90%;
+  }
+}
+
+/* Menu */
+
+#toggle-mobile-menu,
+#c-menu--slide-left #main-menu{
+  display: none;
+}
+
+#c-menu--slide-left > label {
+  display: inline-block;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, .7);
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#c-menu--slide-left > input:checked + #main-menu {
+  display: block;
+  clear: both;
+  /*top: 36px;*/
+  position: relative;
+  /*background:hsla(0, 0%, 100%, .7);*/
+}
+
+#c-menu--slide-left ul li {
+  display: block;
+  padding: 12px 10px;
+}
+
+/*
+#c-menu--slide-left a {
+  text-decoration: none;
+  color: #000;
+}
+*/
+ 
+@media only screen and (min-width: 768px) {
+  #c-menu--slide-left {
+    height: auto;
+  }
+  #c-menu--slide-left #main-menu {
+    display: inline-block;
+  }
+  #c-menu--slide-left > label {
+    display: none
+  }
+  #c-menu--slide-left ul li {
+    display: inline-block;
+  }
+}
+
+/*backgrounds animation etc */
+
+.fruit{
+  background-image: url(/images/bkg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@media screen and (min-width: 48em){
+  .fruit{
+    background-image: url(/images/pomegranate-400.png), url(/images/apple-400.png), url(/images/bkg.jpg);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: -90px 0, 115% 100%, center center;
+    -webkit-background-size: auto, auto, cover;
+    -moz-background-size: auto, auto, cover;
+    -o-background-size: auto, auto, cover;
+    background-size: auto, auto, cover;
+  }
+}
+
+.bg-tree{
+  background: url('/images/fir-tree.svg') 50% 60px no-repeat;
+}
+
+.valley{
+  background: url('/images/valley.jpg') no-repeat;
+  background-size: cover;
+}
+
+@-webkit-keyframes moveleft {
+  from { left: -100%;  }
+  to { left: 100%;  }
+}
+
+.wind{
+  position: absolute;
+  left: -100%;
+  background: url(/images/wind.png);
+  display: block;
+  width: 3000px;
+  height: 800px;
+  top: 0;
+  -webkit-animation-name: moveleft;
+  -webkit-animation-duration: 20s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  z-index: 100;
+}
+
+/* Content Styling  */
+
+article.content h1, article.content h2, article.content h3, article.content h4,article.content h5{
+  margin: 0;
+  font-weight: 400;
+}
+
+article.content h1{
+  font-size: 2.25rem;
+}
+
+article.content h2{
+  font-size: 1.5rem;
+}
+
+article.content h3{
+  font-size: 1.25rem;
+}
+
+article.content p{
+  margin-top: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  color: #333333;
+}
+
+article.content a{
+  color: #333333;
+  text-decoration: underline;
+  transition: color .25 ease-in;
+}
+
+article.content a:hover{
+  color: #E7040F;
+  transition: color .25s ease-in;
+}
+
+article.content img{
+  max-width: 100%;
+}

@@ -1,0 +1,52 @@
+.gl-roboto{
+  font-family: 'Roboto', sans-serif;
+}
+
+.bg-overlay{
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.bg-overlay::after{
+        content: "";
+        background: url(/images/bg-pattern.png) center repeat;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+}
+
+[data-action="cursor"]::after {
+    content:'_';
+    display:inline;
+    line-height:inherit;
+    -webkit-animation:a 1s infinite;
+            animation:a 1s infinite;
+    animation:a 1s infinite;
+    position:relative;
+    bottom: .1em;
+}
+
+@-webkit-keyframes "a" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #D5008F;
+  }
+}
+
+@keyframes "a" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #D5008F;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

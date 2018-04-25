@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{ partial "heading.html" . }}
+  <section class="cf relative z-0 ma4 ma5-ns">
+  {{ range .Data.Pages }}
+    <article class="fl w-100 w-50-m  w-25-ns pa2-ns">
+      <div class="aspect-ratio aspect-ratio--1x1">
+        <div style="background-image:url({{ .Params.featured }});" 
+        class="db bg-center cover aspect-ratio--object" /></div>
+      </div>
+      <a href="{{ .Permalink }}" class="ph2 ph0-ns pb3 link db nowrap overflow-hidden">
+        <h3 class="f5 f4-ns mb0 link black-90 hover-dark-red">{{ .Title | safeHTML }}</h3>
+        <h3 class="f6 f5 fw4 mt2 black-60 ttu">{{ .Params.subtitle | safeHTML }}</h3>
+      </a>
+    </article>
+  {{ end }}
+  </section>
+{{ end }}

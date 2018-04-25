@@ -1,0 +1,23 @@
+baseURL = "https://reverent-lumiere-6fa069.netlify.com"
+languageCode = "en-us"
+title = 'Fine Art <span class="dark-red">Framing</span>'
+theme = "tachyons-rapid"
+
+[[menu.main]]
+  name = "About"
+  weight = 1
+  identifier = "about"
+  url = "#about"
+
+[context.production.environment]
+  HUGO_VERSION = "0.21"
+
+[params]
+  subtitle = "Professional design"
+  author = "Robert Boyer"
+  author_email = "info@coffeebean.agnecy"
+  contact_email = "info@lesterpickerphoto.com"
+  contact_phone = "443.252.0324"
+  contact_location = "Mid-Atlantic USA"
+  contact_map = "/"
+

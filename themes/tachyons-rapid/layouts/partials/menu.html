@@ -1,0 +1,15 @@
+<nav id="c-menu--slide-left" class="ph4 ph5-ns cf">
+  <a href="/" class="dib pr2 mv4 mr2 br-l bw1-l f4 fw7 tracked black no-underline ttu">{{ .Site.Title | safeHTML }}</a>
+  <label for="toggle-mobile-menu" aria-label="Menu" class="fr pv4">&#9776;</label>
+  <input id="toggle-mobile-menu" type="checkbox" />
+  <ul id="main-menu" class="dib pv4 ph0 mh0 mv0 ml4 list fw5 ttu">
+      {{ $currentNode := . }}
+      {{ range .Site.Menus.main }}
+        {{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}
+        <li class="dib mr2"><a href="{{ .URL }}" class="f4 link dark-red hover-dark-red ">{{ .Name }}</a></li>
+        {{ else }}
+        <li class="dib mr2"><a href="{{ .URL }}" class="f4 link mid-gray hover-dark-red ">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    </ul>
+</nav>  

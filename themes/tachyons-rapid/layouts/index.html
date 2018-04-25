@@ -1,0 +1,113 @@
+{{ define "main" }}        
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+  $(function(){
+    var form = $('#download');
+    $(form).submit(function(event) {
+      event.preventDefault();
+      //grecaptcha.reset();
+      grecaptcha.execute();
+    });
+  });
+</script>
+
+<script type="text/javascript">  
+  function onSubmit(token){
+    var form = $('#download');
+    //$(form).submit(function(event) {
+      // Stop the browser from submitting the form.
+      event.preventDefault();
+      var url = "https://canon-test-server.herokuapp.com/ipnx";
+      var data = $(form).serialize();
+      $.support.cors = true;
+      $('#spinner').removeClass('dn');
+      window.location.href = '#open-modal';
+      this.xhr = $.ajax({
+          crossDomain: true,
+          url: url,
+          type: "POST",
+          contentType: "application/x-www-form-urlencoded",
+          data: data,
+          //accept: "application/json",
+          //contentType: "application/json; charset=utf-8",
+          //dataType: "json",
+          success: function(response) {
+            $('#spinner').addClass('dn');
+            $('#success-msg').toggleClass('dn');
+            $('#mc-email').val("");
+          },
+          error: function(response) {
+            window.location.href = '#modal-close';
+            console.log(response)
+          },
+          fail: function(response) {
+            window.location.href = '#modal-close';
+            console.log(response)
+          }
+      });
+    //});  
+  }
+</script>
+  
+<section class="pv5 ph3 ph6-l white-70" {{ if isset .Params "image" }} style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.1)), url('{{ .Params.image }}') no-repeat center; background-size: cover;" {{ end }}>
+  <article class="cf pt5 pa5-l tc">
+    <h1 class="pt4 pt5-l mt4 mt5-l mb2 f2 f-subheadline-l fw7 ttu">Get Your Free Copy</h1>
+    <h2 class="f5 f3-l fw5 mt2 mb5">Framing Checklist &amp; Resources</h2>
+    <form id="download" class="pb4-ns" method="post" action="">
+        <input class="bg-transparent light-gray bt-0 bl-0 br-0 bb-2 bb pb1 w5 ttu tracked fw7 f6 lh-copy" id="mc-email" name="email" placeholder="Your email address" required type="email">
+        <input type="hidden" name="number" value="101">
+        <input type="hidden" name="count" value="2">
+        <button type="submit" class="bg-transparent db dib-l fw7 link white hover-dark-red bn center mt2 ma0-l pl4-l ttu tracked">Get Download</button>
+        <div class="g-recaptcha" 
+          data-sitekey="6Lfm2D4UAAAAAAqvg3rKngjwQ9EHxZljG_vdqwov"
+          data-size="invisible"
+          data-callback="onSubmit">
+        </div>
+      </form>
+    </article>
+</section>
+
+
+  <section id="about" class="bg-black-05 pb4 pt5 cf">
+    <article class="overflow-hidden mv4 pv4">    
+      <h1 class="white dib fl w-0 pv0 mv0 ml-1 tracked-tight lh-solid f-super fw9 wow animated fadeInUp">
+        About
+      </h1>
+      <article class="mid-gray dib fr fw-50-ns mh2 mh0-ns mh5-ns lh-copy f5 fw3 wow animated fadeInUp">
+        <header class="mt0 mb0 f3 fw7">Elegance</header>
+        <p class="mt0 mb2">/'el&#601;g&#601;ns/</p>
+        <p class="mv0 i">noun</p>
+          <ol class="mv0 ml2">
+            <li class="fw5"><span class="fw3">the quality of being graceful and stylish in appearance or manner; style.<br>
+                "a slender woman with grace and elegance"<br>
+                <span class="i">synonyms:</span> style, stylishness, grace, gracefulness, taste, tastefulness, sophistication;</span></li>
+            <li class="fw5"><span class="fw3">the quality of being pleasingly ingenious and simple; neatness.<br>
+                "the simplicity and elegance of the solution"</span></li>
+          </ol>
+        </p>
+      </article>
+    </article>
+  </section>
+  
+  <section class="bg-black-90 white overflow-hidden relative pb4-l pt5-l">
+    <header class="center tc">
+      <h1 class="black overflow-hidden overflow-visible-ns tracked-tight lh-solid f-super fw9 ttu wow animated fadeInUp">
+          Moab
+      </h1>
+    </header>
+    <article class="absolute top-0 left-0 bottom-0 right-0 h-25 center-a mw6 wow animated fadeInUp">    
+      <p class="white-50 dib mv0 mh5 ma0-l lh-copy f5 fw3">Les Picker is a Moab Master and is sponsored by Moab Paper. See some of Les' how-to guides and other fine art print related articles on <a href="https://www.moabpaper.com/blog/" target="_blank" class="link white dim">Moab Paper's site.</a></p>
+    </article>
+  </section>
+
+<div id="open-modal" class="modal-window fixed bg-black-50 top-0 left-0 bottom-0 right-0 z-999 ta3">
+  <div id="spinner" class="spinner vcenter bg-dark-red"></div>
+  <div id="success-msg" class="dn relative pa4 black-80 bg-white vcenter center w-70 w-40-ns ">
+    <a href="#modal-close" title="Close" class="modal-close absolute right-0 top-0 w3 lh-close link black-70 tc">Close</a>
+    <h1 class="f3 fw7 ttu">Check Your eMail</h1>
+    <div>A link to download your free copy will arrive shortly. Check back for on-going case studies, special offers, and more&hellip; <a href="https://business.facebook.com/lespickerphoto/?ref=your_pages" target="_blank" class="link black-50 hover-dark-red">Say hello on Facebook.</a></div>
+  </div>
+</div>
+
+{{ end }}

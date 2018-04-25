@@ -1,0 +1,15 @@
+<section class="ph3 ph4-ns pv4 pv6-ns {{ .Params.background }} {{ .Params.copy }}" id="{{ .Title }}">
+  <h2 class="f2 f1-ns lh-title tracked-tight wow animated fadeInDown ttc">{{ .Title }}</h2>
+  <h3 class="f4 f3-ns normal measure-narrow lh-copy wow animated fadeIn">{{ .Params.large_copy}}</h3>
+  <!-- <a class="dib link blue underline-hover b ttu mv4" href="/strategy.html">Strategic Capabilities<i class="fa fa-fw fa-long-arrow-right"></i></a> -->
+  <p class="measure lh-copy wow animated fadeIn">{{ .Params.small_copy }}</p>
+  <ul class="list pa0 mv4 measure-wide cf mid-gray wow animated fadeInUp">
+    <label class="db mv1 tracked light-silver b ttu"><small>Services</small></label>
+    {{ range .Params.services }}
+    <li class="fl-ns w-50-ns"><small>{{ . }}</small></li>
+    {{ end }}
+  </ul>
+  {{ if .Params.included }}
+    {{ partial .Params.included }}
+  {{ end }}
+</section>

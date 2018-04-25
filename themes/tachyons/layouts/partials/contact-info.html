@@ -1,0 +1,276 @@
+<section class="dt-ns w-100 near-white bg-near-black" id="contact">
+  <div class="db dtc-ns w-100 w-40-ns ph3 ph4-ns pv4 pv6-ns">
+    <h2 class="f4 f3-ns mv0 lh-title tracked-tight wow animated fadeInDown" data-action="cursor">2Fish</h2>
+    <address class="fs-normal mv4 wow animated fadeInUp">
+      <label class="db mv1 tracked silver b ttu"><small>Contact</small></label>
+      <ul class="list pa0 mv0 lh-copy">
+        <li><a class="link underline-hover mid-gray" href="mailto:{{ .Site.Params.contact_email }}"><abbr title="Email" aria-hidden="true"><i class="fa fa-fw fa-envelope"></i></abbr>{{ .Site.Params.contact_email }}</a></li>
+        <li><a class="link underline-hover mid-gray" href="{{ .Site.Params.contact_phone }}"><abbr title="Phone"><i class="fa fa-fw fa-phone" aria-hidden="true"></i></abbr>{{ .Site.Params.contact_email }}</a></li>
+        <li><a class="link underline-hover mid-gray" href="{{ .Site.Params.contact_map }}" target="_blank"><abbr title="Location"><i class="fa fa-fw fa-globe" aria-hidden="true"></i></abbr>{{ .Site.Params.contact_location }}</a></li>
+      </ul>
+    </address>
+    <address class="fs-normal mv4 wow animated fadeInUp">
+      <label class="db mv1 tracked silver b ttu"><small>Founder &amp; Creative Director</small></label>
+      <ul class="list pa0 mv0 lh-copy">
+        <li><span>{{ .Site.Params.author }}</span></li>
+        <li><a class="link underline-hover mid-gray" href="{{ .Site.Params.author_email }}"><abbr title="Email"><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></abbr>{{ .Site.Params.author_email }}</a></li>
+      </ul>
+    </address>
+    <address class="fs-normal mv4 wow animated fadeInUp">
+      <label class="db mv1 tracked silver b ttu"><small>Partner</small></label>
+      <ul class="list pa0 mv0 lh-copy">
+        <li><span>{{ .Site.Params.partner }}</span></li>
+        <li><a class="link underline-hover mid-gray" href="{{ .Site.Params.partner_email }}"><abbr title="Email"><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></abbr>{{ .Site.Params.partner_email }}</a></li>
+      </ul>
+    </address>
+  </div>
+  <div class="dn dtc-ns w-100 w-60-ns relative">
+    <div id="map" class="absolute absolute--fill wow animated fadeIn" style="background-color:transparent">
+    </div>
+  </div>
+  <script type="text/javascript">
+    var geocoder;
+    var map;
+    var address ="Harrisonburg, VA";
+    function initialize() {
+      geocoder = new google.maps.Geocoder();
+      var latlng = new google.maps.LatLng(-34.397, 150.644);
+      var myOptions = {
+        zoom: 12,
+        scrollwheel: false,
+        center: latlng,
+      mapTypeControl: false,
+      suppressMarkers : true,
+      mapTypeControlOptions: {style: google.maps.MapTypeControlStyle.DROPDOWN_MENU},
+      navigationControl: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+        {
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#010101"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#212121"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.country",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#9e9e9e"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.land_parcel",
+          "stylers": [
+            {
+              "visibility": "off"
+            }
+          ]
+        },
+        {
+          "featureType": "administrative.locality",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#bdbdbd"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.icon",
+          "stylers": [
+            {
+              "color": "#D5008F"
+            }
+          ]
+        },
+        {
+          "featureType": "poi",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#181818"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#616161"
+            }
+          ]
+        },
+        {
+          "featureType": "poi.park",
+          "elementType": "labels.text.stroke",
+          "stylers": [
+            {
+              "color": "#1b1b1b"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "geometry.fill",
+          "stylers": [
+            {
+              "color": "#2c2c2c"
+            }
+          ]
+        },
+        {
+          "featureType": "road",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#8a8a8a"
+            }
+          ]
+        },
+        {
+          "featureType": "road.arterial",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#373737"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#3c3c3c"
+            }
+          ]
+        },
+        {
+          "featureType": "road.highway.controlled_access",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#4e4e4e"
+            }
+          ]
+        },
+        {
+          "featureType": "road.local",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#616161"
+            }
+          ]
+        },
+        {
+          "featureType": "transit",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#757575"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "geometry",
+          "stylers": [
+            {
+              "color": "#000000"
+            }
+          ]
+        },
+        {
+          "featureType": "water",
+          "elementType": "labels.text.fill",
+          "stylers": [
+            {
+              "color": "#3d3d3d"
+            }
+          ]
+        }
+      ]      
+      };
+      map = new google.maps.Map(document.getElementById("map"), myOptions);
+      if (geocoder) {
+        geocoder.geocode( { 'address': address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
+            map.setCenter(results[0].geometry.location);
+/*
+              var infowindow = new google.maps.InfoWindow(
+                  { content: '<b>'+address+'</b>',
+                    size: new google.maps.Size(150,50)
+                  });
+
+              var marker = new google.maps.Marker({
+                  position: results[0].geometry.location,
+                  map: map, 
+                  title:address
+              }); 
+              google.maps.event.addListener(marker, 'click', function() {
+                  infowindow.open(map,marker);
+              });
+*/
+            } else {
+              alert("No results found");
+            }
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      }
+    }
+  </script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4pExC0eb71VTchWWaXMqxUfynOXSy6ns&callback=initialize">
+  </script>
+</section>

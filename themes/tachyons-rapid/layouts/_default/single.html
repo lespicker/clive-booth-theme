@@ -1,0 +1,17 @@
+{{ define "main" }}
+  {{ partial "heading.html" . }}
+  <section class="ma4 ma5-ns bg-white cf">
+    <aside class="mb3 mb0-l pl4-l fr-l w-40-l">
+      {{ if isset .Params "featured_link" }}
+      <a href="{{ .Params.featured_link }}">
+        <img class="mw-100" src="{{ .Params.featured }}">
+      </a>
+      {{ else }}
+      <img class="mw-100" src="{{ .Params.featured }}">
+      {{ end }}
+    </aside>
+    <article class="content measure measure-wide-l lh-copy wow fadeInUp animate w-60-l">
+      {{ .Content }}
+    </article>
+  </section>
+{{ end }}

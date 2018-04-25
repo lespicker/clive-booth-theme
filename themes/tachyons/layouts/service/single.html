@@ -1,0 +1,10 @@
+{{ define "header" }}
+  {{ partial "header.html" . }}
+{{ end }}
+{{ define "main" }}
+  <section class="ph3 ph4-ns pv5 pv6-ns bg-white">
+    <article class="measure-wide lh-copy wow fadeInUp animate">
+      {{ .Content }}
+    </article>
+  </section>
+{{ end }}

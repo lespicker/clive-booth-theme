@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <section class="bg-black relative vh-100 pa6-l cf">
+    <article class="white-60 mt4 mt6-l ml2 mr6 mh0-l pt5 pt6-l measure lh-copy f5 fw3 wow fadeInUp animate">
+      {{ .Content }}
+    </article>
+  </section>
+  {{ partial "heading-splash.html" . }}
+  {{ end }}

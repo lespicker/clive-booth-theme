@@ -1,0 +1,13 @@
+<header class="w-100 ph3 ph4-ns pv5 pv6-ns bg-yellow {{.Site.Params.bgimgoverlay }}"{{if .Site.Params.bgimg }} style = "background-image: url({{.Site.Params.bgimg}});"{{end}}>
+
+  <h1 class="{{ partial "class/header-title.html" }}" data-action="cursor">{{ .Title }}</h1>
+  <h2 class="f3 f2-ns mv0 lh-cop measure">{{ .Site.Params.subtitle }}</h2>
+  {{ partial "menu.html" . }}
+  <address class="fs-normal wow animated fadeInUp">
+    <ul class="list pa0 mv4 lh-copy">
+      <li class="dib mr2"><a class="link underline-hover dark-gray" href="mailto:{{ .Site.Params.contact_email }}"><abbr title="Email"><i class="fa fa-fw fa-envelope" aria-hidden="true"></i></abbr>{{ .Site.Params.contact_email }}</a></li>
+      <li class="dib mr2"><a class="link underline-hover dark-gray" href="tel:{{ .Site.Params.contact_phone }}"><abbr title="Phone"><i class="fa fa-fw fa-phone" aria-hidden="true"></i></abbr>{{ .Site.Params.contact_phone }}</a></li>
+      <li class="dib mr2"><a class="link underline-hover dark-gray" href="{{ .Site.Params.contact_map }}" target="_blank"><abbr title="Location"><i class="fa fa-fw fa-globe" aria-hidden="true"></i></abbr>{{ .Site.Params.contact_location }}</a></li>
+    </ul>
+  </address>
+</header>

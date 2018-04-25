@@ -1,0 +1,19 @@
+{{ define "title" }}
+  {{ .Site.Title }}
+{{ end }}
+{{ define "header" }}
+  {{ partial "header-home.html" . }}
+{{ end }}
+{{ define "main" }}
+
+  {{ range where .Data.Pages "Section" "section" }}
+    {{ partial "section.html" . }}
+  {{ end }}
+
+{{ end }}
+{{ define "footer" }}
+  {{ partial "get-quote.html" . }} 
+  {{ partial "contact-info.html" . }} 
+  {{ partial "news-letter.html" . }}
+  {{ partial "footer.html" . }}
+{{ end }}
