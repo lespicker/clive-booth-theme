@@ -8,7 +8,7 @@ $( function(){
         "status": "subscribed",
         "merge_fields": {}
       };
-      fetch("https://json-api-zfornijwoh.now.sh", {
+      fetch("https://lpfa-mc-add.now.sh", {
         headers: {
         'Accept': 'application/json, text/plain, */*',
         'Content-Type': 'application/json'
