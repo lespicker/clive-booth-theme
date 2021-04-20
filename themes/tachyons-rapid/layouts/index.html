@@ -1,64 +1,12 @@
 {{ define "main" }}        
 
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-<script>
-  $(function(){
-    var form = $('#download');
-    $(form).submit(function(event) {
-      event.preventDefault();
-      //grecaptcha.reset();
-      grecaptcha.execute();
-    });
-  });
-</script>
-
-<script type="text/javascript">  
-  function onSubmit(token){
-    var form = $('#download');
-    //$(form).submit(function(event) {
-      // Stop the browser from submitting the form.
-      event.preventDefault();
-      var url = "https://framing-app.herokuapp.com/ipnx";
-      var data = $(form).serialize();
-      $.support.cors = true;
-      $('#spinner').removeClass('dn');
-      window.location.href = '#open-modal';
-      this.xhr = $.ajax({
-          crossDomain: true,
-          url: url,
-          type: "POST",
-          contentType: "application/x-www-form-urlencoded",
-          data: data,
-          //accept: "application/json",
-          //contentType: "application/json; charset=utf-8",
-          //dataType: "json",
-          success: function(response) {
-            $('#spinner').addClass('dn');
-            $('#success-msg').toggleClass('dn');
-            $('#mc-email').val("");
-          },
-          error: function(response) {
-            window.location.href = '#modal-close';
-            console.log(response)
-          },
-          fail: function(response) {
-            window.location.href = '#modal-close';
-            console.log(response)
-          }
-      });
-    //});  
-  }
-</script>
-  
 <section class="pv5 ph3 ph6-l white-70" {{ if isset .Params "image" }} style="background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('{{ .Params.image }}') no-repeat center; background-size: cover;" {{ end }}>
   <article class="cf pt5 pa5-l tc">
     <h1 class="pt4 pt5-l mt4 mt5-l mb2 f2 f-subheadline-l fw7 ttu">Get Your Free Copy</h1>
     <h2 class="f5 f3-l fw5 mt2 mb5">Framing Checklist &amp; Resources</h2>
-    <form id="download" class="pb4-ns" method="post" action="">
+    <form id="download" class="pb4-ns" name="framing-resources" method="post" data-netlify="true">
         <input class="bg-transparent white bt-0 bl-0 br-0 bb-2 bb pb1 w5 ttu tracked fw7 f6 lh-copy" id="mc-email" name="email" placeholder="Your email address" required type="email">
-        <input type="hidden" name="number" value="201">
-        <input type="hidden" name="count" value="2">
-        <button type="submit" class="bg-transparent db dib-l fw7 link white hover-dark-red bn center mt2 ma0-l pl4-l ttu tracked">Get Download</button>
+        <input type="submit" class="bg-transparent db dib-l fw7 link white hover-dark-red bn center mt2 ma0-l pl4-l ttu tracked" value="Get Download">
         <div class="g-recaptcha" 
           data-sitekey="6Lfm2D4UAAAAAAqvg3rKngjwQ9EHxZljG_vdqwov"
           data-size="invisible"
